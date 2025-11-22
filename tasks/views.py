@@ -20,7 +20,10 @@ class IsCreatorOrAssigneeOrReadOnly(permissions.BasePermission):
 
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
-    permission_classes = (permissions.IsAuthenticated, IsCreatorOrAssigneeOrReadOnly)
+    permission_classes = (
+        permissions.IsAuthenticated,
+        IsCreatorOrAssigneeOrReadOnly,
+    )
 
     def get_queryset(self):
         user = self.request.user
